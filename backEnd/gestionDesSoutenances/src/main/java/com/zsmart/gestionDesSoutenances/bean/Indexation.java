@@ -16,20 +16,17 @@ import javax.persistence.Id;
  * @author HP
  */
 @Entity
-public class Etablissement implements Serializable {
+public class Indexation implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String reference;
-    private String nom;
-    
+    private String libelle;
 
-    public Etablissement() {
+    public Indexation() {
     }
 
-    
     public Long getId() {
         return id;
     }
@@ -38,20 +35,12 @@ public class Etablissement implements Serializable {
         this.id = id;
     }
 
-    public String getReference() {
-        return reference;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
     @Override
@@ -64,10 +53,10 @@ public class Etablissement implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Etablissement)) {
+        if (!(object instanceof Indexation)) {
             return false;
         }
-        Etablissement other = (Etablissement) object;
+        Indexation other = (Indexation) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -76,7 +65,7 @@ public class Etablissement implements Serializable {
 
     @Override
     public String toString() {
-        return "com.zsmart.gestionDesSoutenances.bean.Etablissement[ id=" + id + " ]";
+        return "Indexation{" + "id=" + id + ", libelle=" + libelle + '}';
     }
-    
+
 }

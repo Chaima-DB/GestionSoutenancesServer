@@ -10,23 +10,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author HP
  */
 @Entity
-public class Etablissement implements Serializable {
+public class SoutenanceJury implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String reference;
-    private String nom;
+    private String resultat;
     
+   
 
-    public Etablissement() {
+    @ManyToOne
+    private Soutenance soutenance;
+    @ManyToOne
+    private Jury jury;
+    
+    
+    
+            
+    public SoutenanceJury() {
     }
 
     
@@ -38,21 +47,31 @@ public class Etablissement implements Serializable {
         this.id = id;
     }
 
-    public String getReference() {
-        return reference;
+    public String getResultat() {
+        return resultat;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setResultat(String resultat) {
+        this.resultat = resultat;
     }
 
-    public String getNom() {
-        return nom;
+
+    public Soutenance getSoutenance() {
+        return soutenance;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setSoutenance(Soutenance soutenance) {
+        this.soutenance = soutenance;
     }
+
+    public Jury getJury() {
+        return jury;
+    }
+
+    public void setJury(Jury jury) {
+        this.jury = jury;
+    }
+
 
     @Override
     public int hashCode() {
@@ -64,10 +83,10 @@ public class Etablissement implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Etablissement)) {
+        if (!(object instanceof SoutenanceJury)) {
             return false;
         }
-        Etablissement other = (Etablissement) object;
+        SoutenanceJury other = (SoutenanceJury) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -76,7 +95,12 @@ public class Etablissement implements Serializable {
 
     @Override
     public String toString() {
-        return "com.zsmart.gestionDesSoutenances.bean.Etablissement[ id=" + id + " ]";
+        return "SoutenanceJury{" + "id=" + id +  ", soutenance=" + soutenance + ", jury=" + jury + ", resultat=" + resultat +'}';
     }
+
+    
+   
+
+    
     
 }

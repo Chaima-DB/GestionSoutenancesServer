@@ -10,30 +10,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author HP
  */
 @Entity
-public class StructureDeRecherche implements Serializable {
+public class Specialite implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String reference;
-    private String title;
-    private String responsable;
-    private String emailRespo;
-    
-    @ManyToOne
-    private Etablissement etablissement;
+    private String libelle;
 
-    public StructureDeRecherche() {
+    public Specialite() {
     }
-             
 
     
     public Long getId() {
@@ -52,38 +45,13 @@ public class StructureDeRecherche implements Serializable {
         this.reference = reference;
     }
 
-    public String getTitle() {
-        return title;
+    public String getLibelle() {
+        return libelle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
-
-    public String getResponsable() {
-        return responsable;
-    }
-
-    public void setResponsable(String responsable) {
-        this.responsable = responsable;
-    }
-
-    public String getEmailRespo() {
-        return emailRespo;
-    }
-
-    public void setEmailRespo(String emailRespo) {
-        this.emailRespo = emailRespo;
-    }
-
-    public Etablissement getEtablissement() {
-        return etablissement;
-    }
-
-    public void setEtablissement(Etablissement etablissement) {
-        this.etablissement = etablissement;
-    }
-
 
     @Override
     public int hashCode() {
@@ -95,10 +63,10 @@ public class StructureDeRecherche implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof StructureDeRecherche)) {
+        if (!(object instanceof Specialite)) {
             return false;
         }
-        StructureDeRecherche other = (StructureDeRecherche) object;
+        Specialite other = (Specialite) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -107,7 +75,7 @@ public class StructureDeRecherche implements Serializable {
 
     @Override
     public String toString() {
-        return "com.zsmart.gestionDesSoutenances.bean.StructureDeRecherche[ id=" + id + " ]";
+        return "com.zsmart.gestionDesSoutenances.bean.Specialite[ id=" + id + " ]";
     }
     
 }
