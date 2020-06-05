@@ -23,19 +23,23 @@ public class SoutenanceJury implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String resultat;
-    
-   
-
     @ManyToOne
     private Soutenance soutenance;
     @ManyToOne
     private Jury jury;
+    private String resultat;
     
-    
-    
-            
-    public SoutenanceJury() {
+  
+
+	public SoutenanceJury(Soutenance soutenance, Jury jury, String resultat) {
+		super();
+		this.soutenance = soutenance;
+		this.jury = jury;
+		this.resultat = resultat;
+	}
+
+
+	public SoutenanceJury() {
     }
 
     
@@ -72,35 +76,4 @@ public class SoutenanceJury implements Serializable {
         this.jury = jury;
     }
 
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof SoutenanceJury)) {
-            return false;
-        }
-        SoutenanceJury other = (SoutenanceJury) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "SoutenanceJury{" + "id=" + id +  ", soutenance=" + soutenance + ", jury=" + jury + ", resultat=" + resultat +'}';
-    }
-
-    
-   
-
-    
-    
 }

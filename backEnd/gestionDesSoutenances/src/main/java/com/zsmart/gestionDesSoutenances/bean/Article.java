@@ -25,14 +25,11 @@ public class Article extends Document {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String titre;
     @Temporal(javax.persistence.TemporalType.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date datePublicationArticle;
     private String motCle;
 
-    @ManyToOne
-    Doctorant doctorant;
     @ManyToOne
     Indexation  indexation;
 
@@ -49,14 +46,6 @@ public class Article extends Document {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTitre() {
-        return titre;
-    }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
     }
 
     public Date getDatePublicationArticle() {

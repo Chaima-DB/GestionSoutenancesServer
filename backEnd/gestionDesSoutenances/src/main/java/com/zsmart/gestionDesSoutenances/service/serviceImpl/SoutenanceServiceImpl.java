@@ -8,12 +8,15 @@ package com.zsmart.gestionDesSoutenances.service.serviceImpl;
 import com.zsmart.gestionDesSoutenances.bean.Doctorant;
 import com.zsmart.gestionDesSoutenances.bean.Soutenance;
 import com.zsmart.gestionDesSoutenances.bean.SoutenanceJury;
+import com.zsmart.gestionDesSoutenances.bean.Specialite;
 import com.zsmart.gestionDesSoutenances.dao.SoutenanceDao;
 import com.zsmart.gestionDesSoutenances.service.facade.DoctorantService;
 import com.zsmart.gestionDesSoutenances.service.facade.SoutenanceJuryService;
 import com.zsmart.gestionDesSoutenances.service.facade.SoutenanceService;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,10 +67,8 @@ public class SoutenanceServiceImpl implements SoutenanceService {
             return -2;
         } else if (doctorantUniqueSoutenance != null) {
             return -3;
-        } else if (soutenanceJuryService.validateSoutenanceJury(soutenance, soutenanceJurys)== false) {
+        } else if (!soutenanceJuryService.validateSoutenanceJury(soutenance, soutenanceJurys)) {
             return -4;
-        } else if (soutenanceJuryService.validateSoutenanceJury(soutenance, soutenanceJurys)== false) {
-            return -5;
         } else {
             
             soutenance.setDoctorant(doctorant);

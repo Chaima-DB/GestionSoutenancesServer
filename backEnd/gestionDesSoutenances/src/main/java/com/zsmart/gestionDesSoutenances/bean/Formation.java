@@ -18,12 +18,18 @@ import javax.persistence.Id;
 public class Formation extends Document{
      private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private double nbrHeures;
     
     
-    public Formation() {
+    public Formation(double nbrHeures) {
+		super();
+		this.nbrHeures = nbrHeures;
+	}
+
+
+	public Formation() {
     }
 
     

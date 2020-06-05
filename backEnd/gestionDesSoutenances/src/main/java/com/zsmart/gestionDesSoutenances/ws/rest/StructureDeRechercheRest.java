@@ -1,8 +1,7 @@
 package com.zsmart.gestionDesSoutenances.ws.rest;
 
 import java.util.List;
-import com.zsmart.gestionDesSoutenances.bean.StructureDeRecherche;
-import com.zsmart.gestionDesSoutenances.service.facade.StructureDeRechercheService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zsmart.gestionDesSoutenances.bean.StructureDeRecherche;
+import com.zsmart.gestionDesSoutenances.service.facade.StructureDeRechercheService;
+
+import io.swagger.annotations.Api;
+@Api
 @RestController
 //@CrossOrigin(origins = {"http://localhost:4200"})
 @RequestMapping("api/v1/gestionDesSoutenances-api/structureDeRecherche")

@@ -58,7 +58,6 @@ public class ArticleServiceImpl implements ArticleService {
             Article article = new Article();
             article.setPdf(file.getBytes());
             articleDao.save(article);
-            System.out.println("upload" + file.getName());
         } catch (IOException ex) {
             Logger.getLogger(ArticleServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

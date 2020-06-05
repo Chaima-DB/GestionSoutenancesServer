@@ -18,11 +18,13 @@ import javax.persistence.Id;
 public class Jury extends Professeur{
      private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    
     public Jury() {
-    }
+		super();
+	}
 
     
     public Long getId() {

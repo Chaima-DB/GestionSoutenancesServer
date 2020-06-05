@@ -29,7 +29,20 @@ public class Personnel implements Serializable {
     @ManyToOne
     protected Specialite specialite;
 
-    public Personnel() {
+    
+    public Personnel(String cin, String nom, String prenom, String sexe, String email, String tel,
+			Specialite specialite) {
+		super();
+		this.cin = cin;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.sexe = sexe;
+		this.email = email;
+		this.tel = tel;
+		this.specialite = specialite;
+	}
+
+	public Personnel() {
     }
 
     public String getCin() {

@@ -19,7 +19,7 @@ public interface SoutenanceJuryService {
 
     boolean validateSoutenanceJury(Soutenance soutenance, List<SoutenanceJury> soutenanceJurys);
     
-    boolean validateJury(Soutenance soutenance, List<SoutenanceJury> soutenanceJurys);
+    //boolean validateJury(Soutenance soutenance, List<SoutenanceJury> soutenanceJurys);
 
     List<SoutenanceJury> findBySoutenanceReference(String reference);
 

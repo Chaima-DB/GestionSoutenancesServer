@@ -21,7 +21,7 @@ import javax.persistence.Temporal;
 public class Communication extends Document{
      private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String endroit;
     private String type;
@@ -29,7 +29,16 @@ public class Communication extends Document{
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dateCommunication;
     
-    public Communication() {
+    
+    public Communication(String endroit, String type, Date dateCommunication) {
+		super();
+		this.endroit = endroit;
+		this.type = type;
+		this.dateCommunication = dateCommunication;
+	}
+
+
+	public Communication() {
     }
 
     

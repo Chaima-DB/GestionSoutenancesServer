@@ -40,11 +40,12 @@ public class SoutenanceJuryServiceImpl implements SoutenanceJuryService {
         return valideJurys.size() == soutenanceJurys.size();
     }
 
-    @Override
+    /* @Override
     public boolean validateJury(Soutenance soutenance, List<SoutenanceJury> soutenanceJurys) {
         List<SoutenanceJury> validespecialite = soutenanceJurys.stream().filter(sj -> (sj.getJury().getSpecialite().getReference().equals(soutenance.getDoctorant().getSpecialite().getReference()))).collect(Collectors.toList());
         return validespecialite.size() == soutenanceJurys.size();
     }
+    */
 
     @Override
     public int save(Soutenance soutenance, List<SoutenanceJury> soutenanceJurys) {

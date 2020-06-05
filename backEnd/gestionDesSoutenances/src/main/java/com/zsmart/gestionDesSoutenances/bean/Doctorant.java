@@ -24,7 +24,7 @@ public class Doctorant extends Personnel {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String cne;
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -42,6 +42,7 @@ public class Doctorant extends Personnel {
   
 
     public Doctorant() {
+    	//super()
     }
 
     public Long getId() {

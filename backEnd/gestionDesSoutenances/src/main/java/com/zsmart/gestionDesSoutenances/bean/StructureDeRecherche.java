@@ -21,17 +21,30 @@ public class StructureDeRecherche implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String reference;
+    @ManyToOne
+    private Etablissement etablissement;
     private String title;
     private String responsable;
     private String emailRespo;
     
-    @ManyToOne
-    private Etablissement etablissement;
+    
 
-    public StructureDeRecherche() {
+    public StructureDeRecherche(String reference, Etablissement etablissement, String title, String responsable,
+			String emailRespo) {
+		super();
+		this.reference = reference;
+		this.etablissement = etablissement;
+		this.title = title;
+		this.responsable = responsable;
+		this.emailRespo = emailRespo;
+	}
+
+
+
+	public StructureDeRecherche() {
     }
              
 
@@ -85,29 +98,4 @@ public class StructureDeRecherche implements Serializable {
     }
 
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof StructureDeRecherche)) {
-            return false;
-        }
-        StructureDeRecherche other = (StructureDeRecherche) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.zsmart.gestionDesSoutenances.bean.StructureDeRecherche[ id=" + id + " ]";
-    }
-    
 }

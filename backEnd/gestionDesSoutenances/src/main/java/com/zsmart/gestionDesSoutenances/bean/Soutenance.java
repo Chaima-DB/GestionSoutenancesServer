@@ -42,7 +42,18 @@ public class Soutenance implements Serializable {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<SoutenanceJury> soutenanceJurys;
 
-    public Soutenance() {
+    
+    public Soutenance(String reference, Date dateSoutenance, String resultatFinal, Doctorant doctorant,
+			List<SoutenanceJury> soutenanceJurys) {
+		super();
+		this.reference = reference;
+		this.dateSoutenance = dateSoutenance;
+		this.resultatFinal = resultatFinal;
+		this.doctorant = doctorant;
+		this.soutenanceJurys = soutenanceJurys;
+	}
+
+	public Soutenance() {
     }
 
     public Long getId() {
@@ -93,29 +104,5 @@ public class Soutenance implements Serializable {
         this.soutenanceJurys = soutenanceJurys;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Soutenance)) {
-            return false;
-        }
-        Soutenance other = (Soutenance) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Soutenance{" + "id=" + id + ", reference=" + reference + ", resultatFinal=" + resultatFinal + '}';
-    }
 
 }

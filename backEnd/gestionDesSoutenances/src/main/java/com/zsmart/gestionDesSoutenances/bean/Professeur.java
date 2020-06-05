@@ -24,7 +24,8 @@ public class Professeur extends Personnel {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     protected Date dateDernierePublication;
 
-    public Professeur() {
+	public Professeur() {
+		//super()
     }
 
     public Date getDateDernierePublication() {
